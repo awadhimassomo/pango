@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pango Homes – Find your next home</title>
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+</head>
+<body>
+  <header class="top">
+    <h1>🏡 Pango Homes</h1>
+    <p>Search, watch video tours and explore homes in 3D. <span id="session"></span></p>
+  </header>
+
+  <form id="filters" class="filters">
+    <input name="q" placeholder="Search (e.g. pool, garden)">
+    <input name="city" placeholder="City">
+    <select name="listingType"><option value="">Buy or rent</option><option value="sale">Buy</option><option value="rent">Rent</option></select>
+    <select name="type"><option value="">Any type</option><option>house</option><option>villa</option><option>apartment</option><option>studio</option></select>
+    <input name="minPrice" type="number" min="0" placeholder="Min price">
+    <input name="maxPrice" type="number" min="0" placeholder="Max price">
+    <select name="bedrooms"><option value="">Beds</option><option value="1">1+</option><option value="2">2+</option><option value="3">3+</option><option value="4">4+</option></select>
+    <label><input type="checkbox" name="hasVideo" value="true"> Video</label>
+    <label><input type="checkbox" name="has3d" value="true"> 3D</label>
+    <select name="sort"><option value="">Sort</option><option value="price_asc">Price ↑</option><option value="price_desc">Price ↓</option><option value="newest">Newest</option></select>
+    <button type="submit">Search</button>
+  </form>
+
+  <main>
+    <p id="count" class="count"></p>
+    <section id="grid" class="grid"></section>
+  </main>
+
+  <dialog id="detail">
+    <button class="close" id="closeDetail" aria-label="Close">×</button>
+    <div id="detailBody"></div>
+  </dialog>
+
+  <button id="chatToggle" class="chat-toggle" aria-label="Open chat">💬</button>
+  <aside id="chat" class="chat hidden" aria-label="Assistant">
+    <div class="chat-head">Home assistant <button id="chatClose" aria-label="Close chat">×</button></div>
+    <div id="chatLog" class="chat-log"></div>
+    <form id="chatForm" class="chat-form">
+      <input id="chatInput" placeholder="e.g. 3 bed villa in Nairobi with pool" autocomplete="off">
+      <button>Send</button>
+    </form>
+  </aside>
+
+  <script src="auth.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
